@@ -52,14 +52,14 @@ class NetCat:
             sys.exit()
 
     def listen(self):
+        print('listening')
         self.socket.bind((self.args.target, self.args.port))
         self.socket.listen(5)
 
         while True:
             client_socket, _ = self.socket.accept()
             client_thread = threading.Thread(
-                target=self.handle, args=(client_socket,)
-            )
+                target=self.handle, args=(client_socket,))
             client_thread.start()
 
     def handle(self, client_socket):
