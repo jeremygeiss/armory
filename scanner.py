@@ -1,0 +1,22 @@
+#!/bin.python3
+
+import sys #allows us to enter command line argumenrs, among other things
+import socket
+from datetime import datetime
+#usage: python3 scanner.py <ip>
+
+#Define our Target
+if len(sys.argv) == 2:
+    target = socket.gethostbyname(sys.argv[1]) #Translate a host name to IPV4
+else:
+    print("Invalid amount of arguments.")
+    print("Syntax: python3 scanner.py <ip>")
+    sys.exit()
+
+#Add a pretty banner
+print("-" * 50)
+print("Scanning target "+target)
+print("Time Started: "+str(datetime.now()))
+print("-" * 50)
+
+
